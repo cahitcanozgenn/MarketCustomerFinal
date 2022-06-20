@@ -1,0 +1,33 @@
+﻿
+@model MarketCustomer.Models.Entity.customer
+@{
+    ViewBag.Title = "categoryList";
+}
+
+<h2>Müşteri Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.customerId)
+    @Html.TextBoxFor(m => m.customerId, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.customerFirstName)
+    @Html.TextBoxFor(m => m.customerFirstName, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.customerLastName)
+    @Html.TextBoxFor(m => m.customerLastName, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.customerPhoneNumber)
+    @Html.TextBoxFor(m => m.customerPhoneNumber, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.customerAddress)
+    @Html.TextBoxFor(m => m.customerAddress, new { @class = "form-control" })
+
+    @Html.LabelFor(m => m.customerDebt)
+    @Html.TextBoxFor(m => m.customerDebt, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-primary">Müşteri Güncelle</button>
+    </div>
+}

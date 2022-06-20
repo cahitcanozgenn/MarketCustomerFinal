@@ -1,0 +1,52 @@
+﻿@using MarketCustomer.Models.Entity
+@model List<customer>
+@{
+    Layout = null;
+}
+
+<table id="table1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">SIRA NO</th>
+            <th class="text-center">MÜŞTERİ ADI</th>
+            <th class="text-center">MÜŞTERİ SOYADI</th>
+            <th class="text-center">MÜŞTERİ TELEFON NUMARASI</th>
+            <th class="text-center">MÜŞTERİ ADRESİ</th>
+            <th class="text-center">MÜŞTERİ BORCU</th>
+            <th class="text-center">GÜNCELLE</th>
+            <th class="text-center">SİL</th>
+
+        </tr>
+    </thead>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <th class="text-center">@customer.customerId</th>
+            <th class="text-center">@customer.customerFirstName</th>
+            <th class="text-center">@customer.customerLastName</th>
+            <th class="text-center">@customer.customerPhoneNumber</th>
+            <th class="text-center">@customer.customerAddress</th>
+            <th class="text-center">@customer.customerDebt</th>
+            <th class="text-center"><a href="/Customer/customerList/@customer.customerId" class="btn btn-primary">GÜNCELLE</a></th>
+            <th class="text-center"><a href="/Customer/DeleteCustomer/@customer.customerId" class="btn btn-danger" onclick="return confirm('Gerçekten Silmek İstiyor Musunuz?')">SİL</a></th>
+
+        </tr>
+
+    }
+
+</table>
+
+<a href="/Customer/AddCustomer" class="btn btn-primary">Yeni Müşteri Ekle</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#table1').dataTable({});
+</script>

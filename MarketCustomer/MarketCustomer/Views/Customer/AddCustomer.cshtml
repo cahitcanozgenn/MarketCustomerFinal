@@ -1,0 +1,43 @@
+﻿@model MarketCustomer.Models.Entity.customer
+@{
+    ViewBag.Title = "AddCategory";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<h2>Yeni Kategori Ekleme Sayfası</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>MÜŞTERİ ADI</label>
+        @Html.TextBoxFor(m => m.customerFirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.customerFirstName, "", new { @style = "color:red" })
+
+        <label>MÜŞTERİ SOYADI</label>
+        @Html.TextBoxFor(m => m.customerLastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.customerLastName, "", new { @style = "color:red" })
+
+        <label>MÜŞTERİ TELEFON NUMARASI</label>
+        @Html.TextBoxFor(m => m.customerPhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.customerPhoneNumber, "", new { @style = "color:red" })
+
+        <label>MÜŞTERİ ADRESİ</label>
+        @Html.TextBoxFor(m => m.customerAddress, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.customerAddress, "", new { @style = "color:red" })
+
+        <label>MÜŞTERİ BORCU</label>
+        @Html.TextBoxFor(m => m.customerDebt, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.customerDebt, "", new { @style = "color:red" })
+
+    </div>
+
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="button">MÜŞTERİ EKLE</button>
+    </div>
+    <script>
+            $('#button').click(function ()
+            {
+                alert('Kategori Ekleme İşlemi Başarıyla Tamamlandı.');
+            });
+    </script>
+
+</form>
